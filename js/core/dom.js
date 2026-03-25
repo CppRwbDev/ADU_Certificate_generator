@@ -142,7 +142,7 @@ function createCertificateElement(data) {
                 <span class="prem-signer-name" contenteditable="true" spellcheck="false">${data.rector}</span>
             </div>
         </div>
-        <div class="prem-date" contenteditable="true" spellcheck="false">${data.city || 'Andijon'}-${new Date(data.date || Date.now()).getFullYear()}</div>
+        <div class="prem-date" contenteditable="true" spellcheck="false">Andijon-${data.date ? data.date.split('.').pop() : new Date().getFullYear()}</div>
 
         ` : `
         <!-- STANDARD LAYOUT -->
