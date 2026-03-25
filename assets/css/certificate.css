@@ -136,32 +136,8 @@
     text-align: center;
 }
 
-/* Extra block for faculty name, matching user image */
-.certificate.template-premium .university-name::after {
-    content: "\A Fizika-matematika-IT fakulteti talabasi"; /* CSS newline */
-    white-space: pre;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    color: #1e293b;
-    display: block;
-    margin-top: 5px;
-}
-
 .certificate.template-premium .intro-text {
     display: none; /* Not used in this layout */
-}
-
-.certificate.template-premium .reason-text {
-    font-size: 18px; /* Matn hajmi kichraytirildi uzun matn sig'ishi uchun */
-    line-height: 1.5;
-    color: #0f172a;
-    margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    text-align: justify;
-    text-align-last: center;
-    order: 1; /* Before recipient name */
 }
 
 .certificate.template-premium .recipient-name {
@@ -175,8 +151,21 @@
     display: inline-block;
     min-width: 60%;
     font-style: normal;
-    order: 2; /* Shows up clearly beneath the reason text */
+    order: 1; /* Before reason-text */
 }
+
+.certificate.template-premium .reason-text {
+    font-size: 18px; /* Matn hajmi kichraytirildi uzun matn sig'ishi uchun */
+    line-height: 1.5;
+    color: #0f172a;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: justify;
+    text-align-last: center;
+    order: 2; /* After recipient name */
+}
+
 
 .certificate.template-premium .content {
     position: absolute;
