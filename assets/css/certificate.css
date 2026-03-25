@@ -95,6 +95,81 @@
 .certificate.template-minimal .signature-line { height: 30px; border-bottom: 1px solid #cbd5e1; }
 .certificate.template-minimal .footer { align-items: center; bottom: 35px; z-index: 2; }
 
+/* Premium Andoza Dizayni (PPTX asosi) */
+.certificate.template-premium {
+    background-color: #ffffff;
+    background-image: url('../img/tashakkurnoma_bg.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.certificate.template-premium::before, .certificate.template-premium::after { display: none; }
+
+/* Premium uses specific layout matching the Tashakkurnoma format */
+.certificate.template-premium .university-name {
+    color: #610d11; /* Dark red/maroon from the template or classic academic */
+    font-size: 26px;
+    letter-spacing: 3px;
+    margin-top: 15px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+.certificate.template-premium .certificate-title {
+    color: #b58d3c; /* Gold color */
+    font-size: 48px;
+    letter-spacing: 5px;
+    margin: 25px auto 10px auto;
+    border-bottom: 2px solid #b58d3c;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-weight: 900;
+}
+.certificate.template-premium .intro-text {
+    color: #333;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.certificate.template-premium .recipient-name {
+    font-size: 45px;
+    color: #1e293b;
+    border-bottom: 1px dashed #64748b;
+    font-family: 'Great Vibes', cursive;
+    text-transform: none;
+    margin: 20px 0;
+}
+.certificate.template-premium .reason-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #000;
+    max-width: 80%;
+    margin: 25px auto;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+}
+.certificate.template-premium .seal {
+    bottom: 30mm;
+    left: 40%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(2px);
+    border: 2px solid #b58d3c;
+    color: #b58d3c;
+}
+.certificate.template-premium .footer {
+    bottom: 25mm;
+    left: 20mm;
+    right: 20mm;
+    z-index: 3;
+}
+.certificate.template-premium .signature-line {
+    border-bottom: 1px dashed #333;
+}
+.certificate.template-premium .signature-title {
+    color: #610d11;
+}
+
 /* General Certificate Typography */
 .university-name {
     font-family: 'Cinzel', serif;
