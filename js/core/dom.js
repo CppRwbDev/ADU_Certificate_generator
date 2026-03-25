@@ -106,26 +106,36 @@ function createCertificateElement(data) {
         </div>
 
         ${certTemplate === 'premium' ? `
-        <div class="premium-logos d-flex justify-content-between align-items-start w-100 px-5" style="position: absolute; top: 12mm; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; gap: 80px;">
+        <!-- PREMIUM LAYOUT: Logo -> UniName -> Name -> ReasonText -> Title -> Footer -->
+        <div class="premium-logos">
             <div style="position:relative;">
-                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1, event, this)">
             </div>
             <div style="position:relative;">
-                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2, event, this)">
             </div>
             <div style="position:relative;">
-                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3, event, this)">
             </div>
         </div>
+
+        <h1 class="prem-uni-name drag-element" contenteditable="true" spellcheck="false">${data.uni || 'Andijon davlat universiteti'}</h1>
+
+        <div class="prem-recipient drag-element" contenteditable="true" spellcheck="false" style="${nameFontCSS}">${data.name}</div>
+
+        <div class="prem-reason drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
+
+        <h2 class="prem-title drag-element" contenteditable="true" spellcheck="false">${typeOpts.title}</h2>
+        <p class="prem-subtitle">BILAN TAQDIRLANADI.</p>
+
         ` : `
+        <!-- STANDARD LAYOUT -->
         <div class="cert-top-logo drag-element" style="position: absolute; top: 20mm; left: 20mm; z-index: 10;">
             <img src="${resolvedLogo}" alt="University Logo" style="height: 140px; width: auto; display: block; object-fit: contain;">
         </div>
-        `}
-
 
         <div class="header drag-element">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
@@ -136,6 +146,8 @@ function createCertificateElement(data) {
             <div class="recipient-name drag-element" contenteditable="true" spellcheck="false" style="${nameFontCSS}">${data.name}</div>
             <div class="reason-text drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
         </div>
+        `}
+
 
         <div class="seal drag-element">
             ${sealImg ? `<img src="${sealImg}">` : 'MUHR<br>O\'RNI'}
