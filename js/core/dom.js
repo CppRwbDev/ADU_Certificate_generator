@@ -147,11 +147,11 @@ function createCertificateElement(data) {
 
         ` : `
         <!-- STANDARD LAYOUT -->
-        <div class="cert-top-logo drag-element">
-            <img src="${resolvedLogo}" alt="University Logo" style="height: 120px; width: auto; display: block; object-fit: contain;">
+        <div class="cert-top-logo drag-element" style="position:absolute; top:13mm; left:50%; transform:translateX(-50%); z-index:10;">
+            <img src="${resolvedLogo}" alt="University Logo" style="height: 110px; width: auto; display: block; object-fit: contain;">
         </div>
 
-        <div class="header drag-element">
+        <div class="header drag-element" style="padding-top: 35mm;">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
             <h2 class="certificate-title" contenteditable="true" spellcheck="false">${typeOpts.title}</h2>
         </div>
@@ -161,6 +161,7 @@ function createCertificateElement(data) {
             <div class="reason-text drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
         </div>
         `}
+
 
 
 

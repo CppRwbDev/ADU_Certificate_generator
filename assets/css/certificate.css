@@ -59,6 +59,10 @@
     top: 16mm; right: 18mm; left: auto; transform: none;
 }
 
+/* Override cert-top-logo for left-aligned templates */
+.certificate.template-zamonaviy .cert-top-logo { left: auto !important; right: 18mm; transform: none !important; top: 10mm !important; }
+.certificate.template-minimal .cert-top-logo { left: auto !important; right: 18mm; transform: none !important; top: 14mm !important; }
+
 /* Certificate Templates styling */
 
 .certificate.template-klassik::before {
