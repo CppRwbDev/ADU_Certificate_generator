@@ -124,7 +124,7 @@ function createCertificateElement(data) {
 
         <div class="prem-uni-block drag-element">
             <div class="prem-uni-name" contenteditable="true" spellcheck="false">${data.uni || 'Andijon davlat universiteti'}</div>
-            <div class="prem-faculty" contenteditable="true" spellcheck="false">${data.rectorTitle || 'Fizika-matematika-IT fakulteti talabasi'}</div>
+            <div class="prem-faculty" contenteditable="true" spellcheck="false">${data.name || 'Fizika-matematika-IT fakulteti talabasi'}</div>
         </div>
 
         <div class="prem-divider"></div>
@@ -142,7 +142,7 @@ function createCertificateElement(data) {
                 <span class="prem-signer-name" contenteditable="true" spellcheck="false">${data.rector}</span>
             </div>
         </div>
-        <div class="prem-date" contenteditable="true" spellcheck="false">${data.reg ? data.reg + ' — ' : ''}${data.date}</div>
+        <div class="prem-date" contenteditable="true" spellcheck="false">${data.city || 'Andijon'}-${new Date(data.date || Date.now()).getFullYear()}</div>
 
         ` : `
         <!-- STANDARD LAYOUT -->
@@ -217,6 +217,7 @@ function updateSinglePreview() {
     const l = i18n[currentLang];
     const dataObj = {
         uni: document.getElementById('uniName').value,
+        city: i18n[currentLang].city || 'Andijon',
         name: document.getElementById('recipientName').value || l.namePlaceholder,
         reason: document.getElementById('reasonText').value || "[Matn kiritilmagan...]",
         reg: document.getElementById('regNumber').value || "_______",
