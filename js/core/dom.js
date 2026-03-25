@@ -107,15 +107,25 @@ function createCertificateElement(data) {
 
         ${certTemplate === 'premium' ? `
         <div class="premium-logos d-flex justify-content-between align-items-start w-100 px-5" style="position: absolute; top: 12mm; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; gap: 80px;">
-            <img src="assets/img/logo_adu_round.png" style="height: 120px; object-fit: contain;">
-            <img src="assets/img/logo_ministry.png" style="height: 140px; object-fit: contain;">
-            <img src="assets/img/logo_faculty.png" style="height: 120px; object-fit: contain;">
+            <div style="position:relative;">
+                <img src="\${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1, event, this)">
+            </div>
+            <div style="position:relative;">
+                <img src="\${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2, event, this)">
+            </div>
+            <div style="position:relative;">
+                <img src="\${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3, event, this)">
+            </div>
         </div>
         ` : `
         <div class="cert-top-logo drag-element" style="position: absolute; top: 20mm; left: 20mm; z-index: 10;">
             <img src="${resolvedLogo}" alt="University Logo" style="height: 140px; width: auto; display: block; object-fit: contain;">
         </div>
         `}
+
 
         <div class="header drag-element">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
@@ -206,3 +216,28 @@ function updateSinglePreview() {
         name: dataObj.name, reason: dataObj.reason, reg: dataObj.reg, date: dataObj.date, rector: dataObj.rector
     }));
 }
+
+window.removeLocalBg = function(btn) {
+    const certItem = btn.closest('.cert-item');
+    const index = parseInt(certItem.dataset.index);
+    let certs = window._getCertificates();
+    if(certs[index]) {
+        certs[index].localBg = null;
+        window._saveCertificates(certs);
+        window.updatePreview();
+    }
+};
+
+window.updatePremiumLogo = function(logoIndex, event, inputElement) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            window[`premLogo${logoIndex}`] = e.target.result;
+            // Update the immediate image preview visually
+            const img = inputElement.previousElementSibling;
+            if (img) img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+};

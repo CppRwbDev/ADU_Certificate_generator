@@ -108,7 +108,7 @@
 .certificate.template-premium::before, .certificate.template-premium::after { display: none; }
 
 .certificate.template-premium .premium-logos {
-    top: 25mm !important; /* Logolarni pastroqqa tushirish */
+    top: 15mm !important; /* Yana ham teparoq */
     position: absolute;
     width: 100%;
 }
@@ -120,29 +120,14 @@
     margin: 0; padding: 0; display: block;
 }
 
-.certificate.template-premium .content {
-    position: absolute;
-    top: 85mm; /* Matnlar joylashuvini pastroq qildik */
-    left: 20mm;
-    right: 20mm;
-    margin: 0;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.certificate.template-premium .seal {
-    display: none; /* Hide standard seal if not needed */
-}
-
 /* Premium uses specific layout matching the Tashakkurnoma format */
 .certificate.template-premium .university-name {
     position: absolute;
-    top: 55mm; /* Rasmdagi kabi tepada */
+    top: 45mm; /* Logodan keyin */
     left: 0;
     right: 0;
     color: #0f172a;
-    font-size: 26px;
+    font-size: 22px;
     letter-spacing: 1px;
     margin: 0;
     font-family: 'Cinzel', serif;
@@ -155,7 +140,7 @@
 .certificate.template-premium .university-name::after {
     content: "\A Fizika-matematika-IT fakulteti talabasi"; /* CSS newline */
     white-space: pre;
-    font-size: 22px;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     color: #1e293b;
@@ -168,7 +153,7 @@
 }
 
 .certificate.template-premium .reason-text {
-    font-size: 21px;
+    font-size: 18px; /* Matn hajmi kichraytirildi uzun matn sig'ishi uchun */
     line-height: 1.5;
     color: #0f172a;
     margin: 0 auto;
@@ -186,20 +171,35 @@
     border-bottom: 2px dashed #0f172a;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    margin: 15px auto 25px auto;
+    margin: 5px auto 10px auto;
     display: inline-block;
     min-width: 60%;
     font-style: normal;
     order: 2; /* Shows up clearly beneath the reason text */
 }
 
+.certificate.template-premium .content {
+    position: absolute;
+    top: 65mm; /* Universitet nomidan keyin */
+    left: 20mm;
+    right: 20mm;
+    margin: 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.certificate.template-premium .seal {
+    display: none; /* Hide standard seal if not needed */
+}
+
 .certificate.template-premium .certificate-title {
     position: absolute;
-    top: 135mm; /* Rasmdagi kabi pastda */
+    top: 135mm; /* Ism/familiyadan ancha keyin */
     left: 50%;
     transform: translateX(-50%);
     color: #0f172a;
-    font-size: 65px;
+    font-size: 50px;
     letter-spacing: 3px;
     margin: 0;
     border-top: 3px solid #0f172a;
@@ -215,7 +215,7 @@
 .certificate.template-premium .certificate-title::after {
     content: "\A BILAN TAQDIRLANADI.";
     white-space: pre;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 2px;
     display: block;
     border-top: none;
@@ -225,9 +225,9 @@
 }
 
 .certificate.template-premium .footer {
-    bottom: 25mm;
-    left: 40mm;
-    right: 40mm;
+    bottom: 20mm;
+    left: 30mm;
+    right: 30mm;
     z-index: 3;
     position: absolute;
     display: flex;
@@ -264,6 +264,7 @@
 .certificate.template-premium .qrcode-container {
     display: none; /* Hide standard QR code for Premium to match strictly */
 }
+
 
 
 /* General Certificate Typography */
