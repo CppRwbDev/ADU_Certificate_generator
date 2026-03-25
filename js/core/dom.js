@@ -108,15 +108,15 @@ function createCertificateElement(data) {
         ${certTemplate === 'premium' ? `
         <div class="premium-logos d-flex justify-content-between align-items-start w-100 px-5" style="position: absolute; top: 12mm; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; gap: 80px;">
             <div style="position:relative;">
-                <img src="\${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1, event, this)">
             </div>
             <div style="position:relative;">
-                <img src="\${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2, event, this)">
             </div>
             <div style="position:relative;">
-                <img src="\${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
+                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish uchun bosing (boshqa joyga surish uchun ALT+sichqoncha)" onclick="this.nextElementSibling.click()">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3, event, this)">
             </div>
         </div>
