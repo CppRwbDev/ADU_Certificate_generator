@@ -55,4 +55,4 @@ js/
 3.  Hech qanday server yoki o'rnatish talab qilinmaydi (Serverless).
 
 ---
-*Created with ❤️ by [rwbdevw](https://github.com/rwbdevw)*
+*Created with ❤️ by [RWBDEV](https://github.com/CppRwbDev)*
