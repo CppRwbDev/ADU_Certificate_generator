@@ -125,6 +125,7 @@
     align-items: center;
     gap: 50px;
     width: 100%;
+    margin-top: 5mm;
     margin-bottom: 6mm;
 }
 .certificate.template-premium .prem-logo-wrap {
@@ -176,7 +177,7 @@
     text-align-last: center;
     line-height: 1.6;
     margin: 0 0 4mm 0;
-    width: 100%;
+    width: 92%;
 }
 
 /* --- 5. Big Title (TASHAKKURNOMA) --- */
@@ -188,7 +189,6 @@
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
-    border-top: 4px solid #0f172a;
     padding: 4px 0;
     margin: 0 0 3mm 0;
     white-space: nowrap;
@@ -212,7 +212,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 92%;
+    margin-top: 10mm;
     margin-bottom: 3mm;
 }
 .certificate.template-premium .prem-signer-role,
