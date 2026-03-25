@@ -104,42 +104,68 @@
     background-repeat: no-repeat;
     border: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 15mm 20mm 20mm 20mm; /* Top padding is 15mm now */
+    box-sizing: border-box;
 }
 .certificate.template-premium::before, .certificate.template-premium::after { display: none; }
 
 .certificate.template-premium .premium-logos {
-    top: 15mm !important; /* Yana ham teparoq */
-    position: absolute;
+    position: relative;
+    top: 0;
     width: 100%;
+    margin-bottom: 5mm; /* Gap under logos */
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
 }
 .certificate.template-premium .premium-logos img {
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
 .certificate.template-premium .header {
-    margin: 0; padding: 0; display: block;
+    margin: 0; padding: 0; display: contents; /* Display contents lets flex sort children */
 }
 
-/* Premium uses specific layout matching the Tashakkurnoma format */
+/* 1. Universitet Nomi */
 .certificate.template-premium .university-name {
-    position: absolute;
-    top: 45mm; /* Logodan keyin */
-    left: 0;
-    right: 0;
+    position: relative;
+    top: auto;
     color: #0f172a;
-    font-size: 22px;
+    font-size: 24px; /* Hajm optimallashtirildi */
     letter-spacing: 1px;
-    margin: 0;
+    margin: 0 0 15mm 0; /* Gap before content */
     font-family: 'Cinzel', serif;
     font-weight: bold;
     text-transform: none;
     text-align: center;
+    order: 1; /* Logos -> Uni Name */
 }
 
 .certificate.template-premium .intro-text {
     display: none; /* Not used in this layout */
 }
 
+.certificate.template-premium .content {
+    position: relative;
+    top: auto;
+    left: auto; right: auto;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 2; /* Content blocks go here */
+}
+.certificate.template-premium .seal {
+    display: none; /* Hide standard seal if not needed */
+}
+
+/* 2. Recipient Name ([F.I.SH.]) */
 .certificate.template-premium .recipient-name {
     font-size: 32px;
     font-weight: bold;
@@ -147,15 +173,16 @@
     border-bottom: 2px dashed #0f172a;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    margin: 5px auto 10px auto;
+    margin: 0 auto 5mm auto;
     display: inline-block;
     min-width: 60%;
     font-style: normal;
-    order: 1; /* Before reason-text */
+    order: 1; /* Name BEFORE reason text */
 }
 
+/* 3. Reason Text */
 .certificate.template-premium .reason-text {
-    font-size: 18px; /* Matn hajmi kichraytirildi uzun matn sig'ishi uchun */
+    font-size: 19px;
     line-height: 1.5;
     color: #0f172a;
     margin: 0 auto;
@@ -163,34 +190,18 @@
     font-weight: 500;
     text-align: justify;
     text-align-last: center;
-    order: 2; /* After recipient name */
+    order: 2; /* After name */
 }
 
-
-.certificate.template-premium .content {
-    position: absolute;
-    top: 65mm; /* Universitet nomidan keyin */
-    left: 20mm;
-    right: 20mm;
-    margin: 0;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.certificate.template-premium .seal {
-    display: none; /* Hide standard seal if not needed */
-}
-
+/* 4. Certificate Title (MAQTOV YORLIG'I) */
 .certificate.template-premium .certificate-title {
-    position: absolute;
-    top: 135mm; /* Ism/familiyadan ancha keyin */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    left: auto; transform: none;
     color: #0f172a;
-    font-size: 50px;
+    font-size: 55px; /* Hajm moslashtirildi */
     letter-spacing: 3px;
-    margin: 0;
+    margin: 15mm auto 10mm auto; /* Big gap above it and footer */
     border-top: 3px solid #0f172a;
     border-bottom: 3px solid #0f172a;
     white-space: nowrap;
@@ -199,16 +210,17 @@
     text-shadow: none;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    order: 3; /* Completely below content */
 }
 
 .certificate.template-premium .certificate-title::after {
     content: "\A BILAN TAQDIRLANADI.";
     white-space: pre;
-    font-size: 14px;
-    letter-spacing: 2px;
+    font-size: 15px;
+    letter-spacing: 5px;
     display: block;
     border-top: none;
-    font-weight: 600;
+    font-weight: bold;
     color: #a02020;
     margin-top: 10px;
 }
