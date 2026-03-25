@@ -106,30 +106,43 @@ function createCertificateElement(data) {
         </div>
 
         ${certTemplate === 'premium' ? `
-        <!-- PREMIUM LAYOUT: Logo -> UniName -> Name -> ReasonText -> Title -> Footer -->
+        <!-- PREMIUM LAYOUT (TASHAKKURNOMA style) -->
         <div class="premium-logos">
-            <div style="position:relative;">
-                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
-                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1, event, this)">
+            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
+                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1,event,this)">
             </div>
-            <div style="position:relative;">
-                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element premium-editable-logo" style="height: 120px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
-                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2, event, this)">
+            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
+                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element" style="height:150px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2,event,this)">
             </div>
-            <div style="position:relative;">
-                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element premium-editable-logo" style="height: 100px; object-fit: contain; cursor: pointer;" title="O'zgartirish: Bosing. Siljitish: ALT+Sichqoncha" onclick="this.nextElementSibling.click()">
-                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3, event, this)">
+            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
+                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+                <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3,event,this)">
             </div>
         </div>
 
-        <h1 class="prem-uni-name drag-element" contenteditable="true" spellcheck="false">${data.uni || 'Andijon davlat universiteti'}</h1>
+        <div class="prem-uni-block drag-element">
+            <div class="prem-uni-name" contenteditable="true" spellcheck="false">${data.uni || 'Andijon davlat universiteti'}</div>
+            <div class="prem-faculty" contenteditable="true" spellcheck="false">${data.rectorTitle || 'Fizika-matematika-IT fakulteti talabasi'}</div>
+        </div>
 
-        <div class="prem-recipient drag-element" contenteditable="true" spellcheck="false" style="${nameFontCSS}">${data.name}</div>
+        <div class="prem-divider"></div>
 
         <div class="prem-reason drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
 
         <h2 class="prem-title drag-element" contenteditable="true" spellcheck="false">${typeOpts.title}</h2>
         <p class="prem-subtitle">BILAN TAQDIRLANADI.</p>
+
+        <div class="prem-footer">
+            <div class="prem-signer-left">
+                <span class="prem-signer-role" contenteditable="true" spellcheck="false">${typeOpts.role}:</span>
+            </div>
+            <div class="prem-signer-right">
+                <span class="prem-signer-name" contenteditable="true" spellcheck="false">${data.rector}</span>
+            </div>
+        </div>
+        <div class="prem-date" contenteditable="true" spellcheck="false">${data.reg ? data.reg + ' — ' : ''}${data.date}</div>
 
         ` : `
         <!-- STANDARD LAYOUT -->
@@ -147,6 +160,7 @@ function createCertificateElement(data) {
             <div class="reason-text drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
         </div>
         `}
+
 
 
         <div class="seal drag-element">
