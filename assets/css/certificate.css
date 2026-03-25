@@ -104,71 +104,149 @@
     background-repeat: no-repeat;
     border: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 55mm; /* Make space for top logos */
 }
 .certificate.template-premium::before, .certificate.template-premium::after { display: none; }
 
-/* Premium uses specific layout matching the Tashakkurnoma format */
-.certificate.template-premium .university-name {
-    color: #610d11; /* Dark red/maroon from the template or classic academic */
-    font-size: 26px;
-    letter-spacing: 3px;
-    margin-top: 15px;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
+.certificate.template-premium .premium-logos img {
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
-.certificate.template-premium .certificate-title {
-    color: #b58d3c; /* Gold color */
-    font-size: 48px;
-    letter-spacing: 5px;
-    margin: 25px auto 10px auto;
-    border-bottom: 2px solid #b58d3c;
-    display: inline-block;
-    padding-bottom: 10px;
-    font-weight: 900;
+
+.certificate.template-premium .header {
+    order: 4; /* Move title to bottom */
+    margin-top: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
-.certificate.template-premium .intro-text {
-    color: #333;
-    font-size: 16px;
-    margin-top: 10px;
-}
-.certificate.template-premium .recipient-name {
-    font-size: 45px;
-    color: #1e293b;
-    border-bottom: 1px dashed #64748b;
-    font-family: 'Great Vibes', cursive;
-    text-transform: none;
-    margin: 20px 0;
-}
-.certificate.template-premium .reason-text {
-    font-size: 20px;
-    line-height: 1.8;
-    color: #000;
-    max-width: 80%;
-    margin: 25px auto;
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    font-weight: 500;
+.certificate.template-premium .content {
+    order: 2; /* Content goes above the title */
+    margin-top: 0;
+    width: 100%;
 }
 .certificate.template-premium .seal {
-    bottom: 30mm;
-    left: 40%;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(2px);
-    border: 2px solid #b58d3c;
-    color: #b58d3c;
+    display: none; /* Hide standard seal if not needed, or adjust */
 }
+
+/* Premium uses specific layout matching the Tashakkurnoma format */
+.certificate.template-premium .university-name {
+    color: #0f172a;
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    text-transform: none;
+    order: 1; /* First element after logos */
+}
+
+/* Extra block for faculty name, matching user image */
+.certificate.template-premium .university-name::after {
+    content: '\\A Fizika-matematika-IT fakulteti talabasi';
+    white-space: pre;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #1e293b;
+    display: block;
+    margin-top: 5px;
+}
+
+.certificate.template-premium .intro-text {
+    display: none; /* Not used in this layout */
+}
+
+.certificate.template-premium .recipient-name {
+    font-size: 35px;
+    font-weight: bold;
+    color: #a02020;
+    border-bottom: 2px dashed #000;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin: 10px auto;
+    display: inline-block;
+    min-width: 50%;
+    order: 3; /* Between reason-text and title */
+    font-style: normal;
+}
+
+.certificate.template-premium .reason-text {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #0f172a;
+    max-width: 90%;
+    margin: 30px auto 10px auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.certificate.template-premium .certificate-title {
+    color: #0f172a; /* Black/Dark text */
+    font-size: 75px;
+    letter-spacing: 5px;
+    margin: 20px auto;
+    border-top: 3px solid #0f172a;
+    border-bottom: 3px solid #0f172a;
+    display: inline-block;
+    padding: 5px 0;
+    font-weight: 900;
+    text-shadow: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.certificate.template-premium .certificate-title::after {
+    content: '\\A BILAN TAQDIRLANADI.';
+    white-space: pre;
+    font-size: 20px;
+    letter-spacing: 2px;
+    display: block;
+    border-top: none;
+    font-weight: 500;
+    color: #b58d3c; /* Some color or keep black */
+    margin-top: 15px;
+}
+
 .certificate.template-premium .footer {
+    order: 5;
     bottom: 25mm;
     left: 20mm;
     right: 20mm;
     z-index: 3;
+    position: absolute;
+    width: calc(100% - 40mm);
 }
 .certificate.template-premium .signature-line {
-    border-bottom: 1px dashed #333;
+    border: none;
+    margin-bottom: 0;
 }
 .certificate.template-premium .signature-title {
-    color: #610d11;
+    color: #a02020; /* Reddish text for DEKAN: */
+    font-size: 20px;
+    text-transform: uppercase;
 }
+.certificate.template-premium .rector-name {
+    color: #a02020;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+}
+.certificate.template-premium .date-block {
+    position: absolute;
+    bottom: -15mm;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #a02020;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 
 /* General Certificate Typography */
 .university-name {

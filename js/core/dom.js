@@ -105,9 +105,17 @@ function createCertificateElement(data) {
             ${localBgImg ? `<button onclick="removeLocalBg(this)" class="local-bg-remove-btn">${t.removeBgBtn}</button>` : ''}
         </div>
 
+        ${certTemplate === 'premium' ? `
+        <div class="premium-logos d-flex justify-content-between align-items-start w-100 px-5" style="position: absolute; top: 12mm; left: 0; right: 0; z-index: 10; display: flex; justify-content: center; gap: 80px;">
+            <img src="assets/img/logo_adu_round.png" style="height: 120px; object-fit: contain;">
+            <img src="assets/img/logo_ministry.png" style="height: 140px; object-fit: contain;">
+            <img src="assets/img/logo_faculty.png" style="height: 120px; object-fit: contain;">
+        </div>
+        ` : `
         <div class="cert-top-logo drag-element" style="position: absolute; top: 20mm; left: 20mm; z-index: 10;">
             <img src="${resolvedLogo}" alt="University Logo" style="height: 140px; width: auto; display: block; object-fit: contain;">
         </div>
+        `}
 
         <div class="header drag-element">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
