@@ -151,7 +151,7 @@ function createCertificateElement(data) {
             <img src="${resolvedLogo}" alt="University Logo" style="height: 110px; width: auto; display: block; object-fit: contain;">
         </div>
 
-        <div class="header drag-element" style="padding-top: 35mm;">
+        <div class="header drag-element">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
             <h2 class="certificate-title" contenteditable="true" spellcheck="false">${typeOpts.title}</h2>
         </div>

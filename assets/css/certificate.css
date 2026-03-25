@@ -63,6 +63,12 @@
 .certificate.template-zamonaviy .cert-top-logo { left: auto !important; right: 18mm; transform: none !important; top: 10mm !important; }
 .certificate.template-minimal .cert-top-logo { left: auto !important; right: 18mm; transform: none !important; top: 14mm !important; }
 
+/* Klassik: logo yuqori-markazda, header uning tagida bo'lishi kerak */
+.certificate.template-klassik .header { padding-top: 32mm !important; }
+/* Zamonaviy/Minimal: logo o'ngda - header tepadan boshlanishi mumkin */
+.certificate.template-zamonaviy .header { margin-top: 15px !important; padding-top: 0 !important; }
+.certificate.template-minimal .header { padding-top: 0 !important; }
+
 /* Certificate Templates styling */
 
 .certificate.template-klassik::before {
