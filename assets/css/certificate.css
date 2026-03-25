@@ -42,7 +42,25 @@
     z-index: 1; /* Stay above background layer */
 }
 
+/* Default logo position: top-center (klassik) */
+.certificate:not(.template-premium) .cert-top-logo {
+    position: absolute;
+    top: 13mm;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+/* Zamonaviy: logo top-right (text is left-aligned) */
+.certificate.template-zamonaviy .cert-top-logo {
+    top: 12mm; right: 18mm; left: auto; transform: none;
+}
+/* Minimal: logo top-right */
+.certificate.template-minimal .cert-top-logo {
+    top: 16mm; right: 18mm; left: auto; transform: none;
+}
+
 /* Certificate Templates styling */
+
 .certificate.template-klassik::before {
     content: ''; position: absolute; top: 10mm; left: 10mm; right: 10mm; bottom: 10mm;
     border: 2px solid var(--primary-color); pointer-events: none;

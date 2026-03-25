@@ -108,19 +108,20 @@ function createCertificateElement(data) {
         ${certTemplate === 'premium' ? `
         <!-- PREMIUM LAYOUT (TASHAKKURNOMA style) -->
         <div class="premium-logos">
-            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
-                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+            <label class="prem-logo-wrap" title="O'zgartirish uchun bosing">
+                <img src="${window.premLogo1 || 'assets/img/logo_adu_round.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(1,event,this)">
-            </div>
-            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
-                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element" style="height:150px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+            </label>
+            <label class="prem-logo-wrap" title="O'zgartirish uchun bosing">
+                <img src="${window.premLogo2 || 'assets/img/logo_ministry.png'}" class="drag-element" style="height:150px;object-fit:contain;cursor:pointer;">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(2,event,this)">
-            </div>
-            <div class="prem-logo-wrap" onclick="this.querySelector('input').click()">
-                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;" title="O'zgartirish uchun bosing">
+            </label>
+            <label class="prem-logo-wrap" title="O'zgartirish uchun bosing">
+                <img src="${window.premLogo3 || 'assets/img/logo_faculty.png'}" class="drag-element" style="height:130px;object-fit:contain;cursor:pointer;">
                 <input type="file" style="display:none;" accept="image/*" onchange="updatePremiumLogo(3,event,this)">
-            </div>
+            </label>
         </div>
+
 
         <div class="prem-uni-block drag-element">
             <div class="prem-uni-name" contenteditable="true" spellcheck="false">${data.uni || 'Andijon davlat universiteti'}</div>
@@ -146,6 +147,10 @@ function createCertificateElement(data) {
 
         ` : `
         <!-- STANDARD LAYOUT -->
+        <div class="cert-top-logo drag-element">
+            <img src="${resolvedLogo}" alt="University Logo" style="height: 120px; width: auto; display: block; object-fit: contain;">
+        </div>
+
         <div class="header drag-element">
             ${data.uni ? `<h1 class="university-name" contenteditable="true" spellcheck="false">${data.uni}</h1>` : ''}
             <h2 class="certificate-title" contenteditable="true" spellcheck="false">${typeOpts.title}</h2>
@@ -156,6 +161,7 @@ function createCertificateElement(data) {
             <div class="reason-text drag-element" contenteditable="true" spellcheck="false">${data.reason}</div>
         </div>
         `}
+
 
 
 
